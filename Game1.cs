@@ -9,9 +9,11 @@ namespace Monogame_Part_2_scaling_using_rectangles_and_text
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        private Microsoft.Xna.Framework.Graphics.SpriteBatch _spriteBatch;
         Texture2D circleTexture;
         Texture2D rectangleTexture;
+        private SpriteFont titleFont;
+
         Rectangle earsO1Rect;
         Rectangle earsO2Rect;
         Rectangle earsI1Rect;
@@ -25,8 +27,7 @@ namespace Monogame_Part_2_scaling_using_rectangles_and_text
         Rectangle noseO2Rect;
         Rectangle noseI1Rect;
         Rectangle noseI2Rect;
-        private SpriteFont font;
-        private string hb = "Happy Birthday!";
+        
 
         public Game1()
         {
@@ -60,10 +61,10 @@ namespace Monogame_Part_2_scaling_using_rectangles_and_text
 
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _spriteBatch = new Microsoft.Xna.Framework.Graphics.SpriteBatch(GraphicsDevice);
             circleTexture = Content.Load<Texture2D>("circle");
             rectangleTexture = Content.Load<Texture2D>("rectangle");
-            font = Content.Load<SpriteFont>("nightcore");
+            titleFont = Content.Load<SpriteFont>("Source");
             // TODO: use this.Content to load your game content here
         }
 
@@ -131,7 +132,7 @@ namespace Monogame_Part_2_scaling_using_rectangles_and_text
             _spriteBatch.Draw(circleTexture, noseI1Rect, Color.DeepPink);
             _spriteBatch.Draw(circleTexture, noseI2Rect, Color.DeepPink);
             //Text
-            _spriteBatch.DrawString(font, "hb", new Vector2(400, 400), Color.Black);
+            _spriteBatch.DrawString(titleFont, "Happy Birthday!", new Vector2(225, 320), Color.Cyan);
             Console.Beep(700, 200);
             Console.Beep(900, 200);
             Console.Beep(600, 500);
